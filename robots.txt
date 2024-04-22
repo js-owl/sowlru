@@ -4,6 +4,6 @@ Disallow: /gallery/
 Disallow: /t/
 Disallow: /r/
 
-Sitemap: http://sowl.ru/sitemap.xml
+Sitemap: https://sowl.ru/sitemap.xml
 
 Host: sowl.ru

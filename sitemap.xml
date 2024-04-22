@@ -5,32 +5,32 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>http://sowl.ru/</loc>
+  <loc>https://sowl.ru/</loc>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://sowl.ru/center/</loc>
+  <loc>https://sowl.ru/center/</loc>
   <changefreq>weekly</changefreq>
   <priority>0.90</priority>
 </url>
 <u
-  <loc>http://sowl.ru/english/</loc>
+  <loc>https://sowl.ru/english/</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://sowl.ru/psiholog/</loc>
+  <loc>https://sowl.ru/psiholog/</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://sowl.ru/logoped/</loc>
+  <loc>https://sowl.ru/logoped/</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://sowl.ru/vacancy.html</loc>
+  <loc>https://sowl.ru/vacancy.html</loc>
   <changefreq>weekly</changefreq>
   <priority>0.60</priority>
 </url>
