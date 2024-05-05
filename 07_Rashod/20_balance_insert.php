@@ -9,9 +9,9 @@ if(!isset($_SESSION['login'])){
 }
 
 //--------------- получение из формы статьи расхода и суммы -------------------------------//
-if (!empty($_POST[prihod]) and !empty($_POST[summa])){
-	$prihod=clearData($_POST[prihod],"sf");
-	$summa=clearData($_POST[summa], "i");
+if (!empty($_POST['prihod']) and !empty($_POST['summa'])){
+	$prihod=clearData($_POST['prihod'],"sf");
+	$summa=clearData($_POST['summa'], "i");
 	
 //------------------------------------- вычисление остатка ---------------------------------//	
 	$query = "SELECT `ostatok` FROM `rashod_balance1` ORDER BY `id_balance` 
@@ -28,7 +28,7 @@ if (!empty($_POST[prihod]) and !empty($_POST[summa])){
 	exit;
 }
 //---------------------------------------- удаление записи по id -------------------------------//
-if(isset($_GET[del])){
+if(isset($_GET['del'])){
 	$query = "DELETE FROM `rashod_balance1` ORDER BY `id_balance` DESC LIMIT 1;";
 	mysqli_query($db, $query);
 	header("Location: 20_balance_insert.php");

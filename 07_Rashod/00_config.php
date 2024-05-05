@@ -1,7 +1,7 @@
 <?php
 define("DB_HOST","mysql86.1gb.ru");
 define("DB_LOGIN","gb_x_sowl");
-define("DB_PASS","ac5eaff4fxvn");
+define("DB_PASS","35ef46e9jk");
 
 // define("DB_HOST","rashod");
 // define("DB_LOGIN","root");

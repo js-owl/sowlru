@@ -1,7 +1,7 @@
 :root {
   --primary-color: #333;
-  --muted-color: #666; /* 525252 */
   --secondary-color: #ab5a03; /* #7f4302*/
+  --muted-color: #555; /* 525252 */
 }
 
 body {
@@ -64,7 +64,7 @@ li {
   text-align: center;
 }
 .red {
-  color: red;
+  color: var(--secondary-color);
 }
 .button {
   margin: 0px 0;
@@ -118,6 +118,9 @@ li {
 }
 .navbar-brand {
   font-weight: bold;
+}
+.navbar-default .navbar-brand {
+  color: var(--muted-color);
 }
 .navbar-default {
   background-color: #f4f4f4;

@@ -3,9 +3,9 @@ session_start();
 require_once ("01_database_connect.php");
 require_once ("03_functions.php");
 
-if (!empty($_POST[email]) and !empty($_POST[pass])){
-	$email=clearData($_POST[email],"sf");
-	$pass=clearData($_POST[pass],"sf");
+if (!empty($_POST['email']) and !empty($_POST['pass'])){
+	$email=clearData($_POST['email'],"sf");
+	$pass=clearData($_POST['pass'],"sf");
 	$pass=md5($pass);
 
 	$query = "SELECT `pass` FROM `rashod_users` WHERE `email`='".$email."';";
