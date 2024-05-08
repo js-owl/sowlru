@@ -44,6 +44,9 @@ ExpiresByType application/xhtml+xml "access plus 600 seconds"
 
 <ifModule mod_rewrite.c>
 	RewriteEngine On
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 	RewriteRule .* - [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]
 	RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]
 </ifModule>
