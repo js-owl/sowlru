@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fatigue analysis in aerospace - </title>
+
+	<link href="_css/bootstrap.min.css" rel="stylesheet"> 
+	<!-- <link href="../index/_css/bootstrap.min.css" rel="stylesheet"> -->
+ 	<link rel="stylesheet" href="_css/style.css">
+</head>
+<body>
+	<!-- ===================================== Navigation ======================================= -->
+	<nav class="navbar navbar-default">
+
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="index.html">aerostro.com</a><a class="navbar-brand" href="..\index.html">.</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Static</a></li>
+					<li class="active"><a href="fatigue.html">Fatigue</a></li>
+					<li><a href="dt.html">DT</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+
+		</div><!-- /.container-fluid -->
+
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<h3>02 | Fatigue Analysis |</h3>
+				<div class="panel-group" id="accord">
+
+					<!-- ================================ Input ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#Input" data-toggle="collapse" data-panel="#accord">Input</a> | <span id="input"></span> |
+						</div>
+						<div class="panel-collapse collapse" id="Input">
+							<div class="panel-body">
+							 <p>
+fmin    = <input type="text" id="fmin1" size="5" value=0.6 > ksi  <span id="fmin2"></span><br><br>
+fmax    = <input type="text" id="fmax1" size="5" value=10.0 > ksi <span id="fmax2"></span><br><br>
+GAG_DR  = <input type="text" id="gagdr1" size="5" value=0.9 > - ground-air-ground damage ratio<br><br>
+FRF  = <input type="text" id="frf1" size="5" value=1.5 > - fatigue reliability factor
+							 </p><div class="divider"></div><p><br>
+pitch    = <input type="text" id="pitch1" size="5" value=1.0 > mm  <span id="pitch2"></span><br><br>							 
+							 </p>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ Mat1 ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#m1" data-toggle="collapse" data-panel="#accord">mat1</a> | <span id="m1_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="m1">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-sm-8">
+										<select id="m1_code">
+<option value="m2024c01" selected>2024-T3 Clad Sheet</option>
+<option value="m2024e01">2024-T3510,T3511 Extr.</option>
+<option value="m2024e02">2024-T42 Extr.</option>
+<option value="m7075b01">7075-T62 Bare Sheet</option>
+<option value="m7075c01">7075-T62 Clad Sheet</option>
+<option value="m7075e01">7075-T6, T6510, T6511 Extr.</option>
+<option value="m7075f01">7075-T73 Die Forging</option>
+<option value="m177cs01">17-7PH CRES Sheet</option>
+<option value= "steel03">Steel 3</option>
+										</select>
+									</div>
+<div class="col-sm-1"><br></div>
+<div class="col-sm-3">thickness=<input id="m1_thk" type="text" size="4" value=0.063 > in</div>
+								</div><br><div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-7"><img class="img-responsive" id="m1_img" alt=""></div>
+									<div class="col-sm-1"></div>
+									<div class="col-sm-4" id="m1_out"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ Fasteners ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#fasteners" data-toggle="collapse" data-panel="#accord">fast</a> | <span id="genFast"></span>
+						</div>
+						<div class="panel-collapse collapse" id="fasteners">
+							<div class="panel-body">
+								<p>
+<a href="C:/avk_pdf/aero/manual/codes.pdf" target="_blank">Codes</a> |
+<a href="C:/avk_pdf/aero/manual/4|3-01.pdf" target="_blank">Joint Strength</a> |
+<a href="C:/avk_pdf/aero/fasteners/5004-1.pdf#page=10" target="_blank">1 rivet</a> |
+<a href="C:/avk_pdf/aero/fasteners/5004-2.pdf#page=41" target="_blank">2 hi-lok</a> |
+<a href="C:/avk_pdf/aero/fasteners/5004-3.pdf#page=7" target="_blank">3 blind</a> |
+								</p>
+								<div class="divider"></div>
+								<div class="row">
+<div class="col-sm-9">
+	<select id="fast">
+		<option value="bacb30nx_ky">X01 (BACB30NX_K_Y+BACC30AB_CY)</option>
+		<option value="bacb30vt_k">YTV (BACB30VT_K+BACC30BL)</option>
+		<option value="bacb30nw_ky">X02 (BACB30NW_K_Y+BACC30AB_CY)</option>
+		<option value="bacb30yp_k">ZVN (BACB30YP_K_Y+BACC30BS)</option>
+		<option value="bacb30vh_cd_s">YVS (BACB30VH_CD_S)</option>
+<option value="bacr15bb_d" selected>XZK (BACR15BB_D) | YOF/ZLX (BACR15FT_D) |</option>
+		<option value="bacr15ce_d">XF (BACR15CE_D) | ZSE (BACR15GF_D)</option>
+		<option value="bacr15ds_d">XKC (BACR15DS_D)</option>
+	</select>
+</div>
+<div class="col-sm-1"><br></div>
+<div class="col-sm-2">
+	<select id="fast_">
+		<option value="5">5</option>
+		<option value="6" selected>6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="12">12</option>
+	</select>
+</div>
+								</div><br><div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-12" id="fast_2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ Mat2 ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#m2" data-toggle="collapse" data-panel="#accord">mat2</a> | <span id="m2_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="m2">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-sm-8">
+										<select id="m2_code">
+<option value="m2024c01" selected>2024-T3 Clad Sheet</option>
+<option value="m2024e01">2024-T3510,T3511 Extr.</option>
+<option value="m2024e02">2024-T42 Extr.</option>
+<option value="m7075b01">7075-T62 Bare Sheet</option>
+<option value="m7075c01">7075-T62 Clad Sheet</option>
+<option value="m7075e01">7075-T6, T6510, T6511 Extr.</option>
+<option value="m7075f01">7075-T73 Die Forging</option>
+<option value="m177cs01">17-7PH CRES Sheet</option>
+<option value= "steel03">Steel 3</option>
+										</select>
+									</div>
+<div class="col-sm-1"><br></div>
+<div class="col-sm-3">thickness=<input id="m2_thk" type="text" size="4" value=0.100 > in</div>
+								</div><br><div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-7"><img class="img-responsive" id="m2_img" alt=""></div>
+									<div class="col-sm-1"></div>
+									<div class="col-sm-4" id="m2_out"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ R1P ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#r1p" data-toggle="collapse" data-panel="#accord">R1P</a> | <span id="r1p_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="r1p">
+							<div class="panel-body">
+<p>
+Critical End Fastener Load<a href="C:/avk_pdf/aero/book2/Book2_12_Special_Allowables.pdf#page=1" target="_blank">.</a> |
+								<div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="row">
+<div class="col-xs-6 text-center r1"><label><input type="radio" name="r1p" value="case01" checked><span></span></label></div>
+<div class="col-xs-6 text-center r2"><label><input type="radio" name="r1p" value="case02"><span></span></label></div>
+										</div>
+									</div>
+									<var><div class="col-sm-8" id="r1p_out"></div></var>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ DFRbase ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#dfrbase" data-toggle="collapse" data-panel="#accord">DFRbase</a> | <span id="dfrbase_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="dfrbase">
+							<div class="panel-body">
+<p>
+Detail Fatigue Rating - stress for 100,000 cycles and R=0.06<a href="C:/avk_pdf/aero/book2/b07.pdf#page=1" target="_blank">.</a> |
+								<div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="row">
+<div class="col-xs-6 text-center d1"><label><input type="radio" name="dfrbase" value="case01" checked><span></span></label></div>
+<div class="col-xs-6 text-center d2"><label><input type="radio" name="dfrbase" value="case02"><span></span></label></div>
+										</div>
+									</div>
+									<var><div class="col-sm-8" id="dfrbase_out"></div></var>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ Afactor ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#Afactor" data-toggle="collapse" data-panel="#accord">Afactor</a> | <span id="Afactor_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="Afactor">
+							<div class="panel-body">
+<p>
+Hole filling factor<a href="C:/avk_pdf/aero/book2/b09.pdf#page=3" target="_blank">.</a> |
+								<div class="divider"></div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="row">
+<div class="col-xs-6 text-center d1"><label><input type="radio" name="Afactor_radio" value="case01" checked><span></span></label></div>
+<div class="col-xs-6 text-center d2"><label><input type="radio" name="Afactor_radio" value="case02"><span></span></label></div>
+										</div>
+									</div>
+									<var><div class="col-sm-8" id="Afactor_out"></div></var>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ================================ Nflight ============================ -->			  
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#Nflight" data-toggle="collapse" data-panel="#accord">N flight</a> | <span id="Nflight_gen"></span>
+						</div>
+						<div class="panel-collapse collapse" id="Nflight">
+							<div class="panel-body">
+<p>
+S-N Curve<a href="C:/avk_pdf/aero/book2/b02.pdf#page=3" target="_blank">.</a> |
+								<div class="divider"></div>
+								<div class="row">
+									<var><div class="col-sm-12" id="Nflight_out"></div></var>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ======================================== Next ======================================== -->		    
+				</div>	    
+			</div>
+		</div>
+	</div>
+	<script src="_js/0_jquery.min.js"></script> 
+	<script src="_js/0_bootstrap.min.js"></script> 
+
+	<script src="_js/0_conversion.js"></script>
+	<script src="_js/0_material.js"></script>
+	<script src="_js/0_fasteners.js"></script>
+
+	<script src="_js/2_fatigue.js"></script>
+</body>
+</html>

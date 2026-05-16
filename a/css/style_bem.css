@@ -1,0 +1,228 @@
+body {
+	font-family: Palatino, "Palatino Lynotype", "Book Antiqua", "Hoefler Text",
+		Georgia, "Lucida Bright", Cambria, Times, "Times New Roman", serif;
+	background: url(../images/bg.png);
+}
+h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #B45F04;
+    text-align: center;
+}
+a {
+    color: #B45F04;
+	font-weight: bold;
+	text-decoration: none;    
+}
+a:hover {
+    color: black;
+	text-decoration: none; 
+}
+.col-xs-3,
+.col-xs-9 {
+    /*border: 1px solid #c0c0c0;    */
+}
+/*=================================================================================*/
+.container {
+    background-color: #f4f4f4;
+}
+.row {
+    border-bottom: 1px solid #c0c0c0;
+}
+.text_red {
+    color: red;
+}
+/*---------------------- header ------------------------*/
+.address {
+    margin-bottom: 10px;
+    color: #B45F04;
+    text-align: right;  
+}
+.phone {
+    font-size: 18px;
+    text-align: right;  
+}
+/*---------------------- navigation ------------------------*/
+.navbar {
+    margin-bottom: 0;
+    /*height: 40px;*/
+}
+.navbar-default {
+    background-color: #f4f4f4;   
+}
+.active {
+    background-color: #e2e2e2;
+}
+/*---------------------- main ------------------------*/
+.table_row {
+    font-size: 13px;
+}
+/*---------------------- footer ------------------------*/
+.footer {
+    background-color: #e2e2e2;
+}
+/*------------------------------------------------------*/
+/*h2 {
+    padding: 10px 0;
+	font-size: 19px;
+    color: black;
+    text-align: center;
+}*/
+/*.content {
+    padding: 10px 0;
+	border-bottom: 1px solid #c0c0c0;
+}
+.content_center {
+    text-align: center;
+}*/
+/*------------------------------------------------------*/
+/*.text {
+    padding-left: 2px;
+    padding-bottom: 5px;
+	font-size: 17px;
+    font-weight: 400;
+    line-height: 25px;
+    text-indent: 0px;*/
+    /*text-align: left;*/
+/*}
+.text_indent {
+    text-indent: 25px;
+}
+.text_italic {
+    font-style: italic;
+}
+.text_bold {
+    font-weight: bold;
+}
+.text_arrow {
+    background: url(../images/arrow.png) no-repeat 5px 8px;
+}*/
+
+/*.text_left{
+    text-align: left;
+}
+.text_right {
+    text-align: right;
+}*/
+
+/*------------------------------------------------------*/
+/*.link {
+    font-size: 17px;
+    color: #B45F04;
+	font-weight: bold;
+	text-decoration: none;
+}*/
+/*.link:hover {
+    color: black;
+}*/
+/*.link_active {
+    color: black;
+}*/
+/*------------------------------------------------------*/
+.form {
+	font-size: 20px;
+	border: 1px solid black;
+	margin-bottom: 16px;    
+}
+/*------------------------------------------------------*/
+ .button {
+    margin: 10px 0;
+	padding: 8px 8px;
+    background: linear-gradient(white, lightgray);
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #B45F04;
+	font-weight: bold;
+	text-decoration: none;
+}
+.button:hover {
+    color: black;
+    background: linear-gradient(lightgray, white);
+}
+/*------------------------------------------------------*/
+/*.center {
+	text-align: center; 
+}
+/*.row {
+	border-bottom: 1px solid #B45F04;
+}*/
+.cell {
+    width: 150px;
+	padding: 0x;
+	text-align: center; 
+}
+.cell_50 {
+    width: 50px;
+}*/
+/*---------------- END OF GENERAL BLOCK ----------------*/
+
+/*------------------- HEADER BLOCK ---------------------*/
+/*.header {
+	position: relative;
+    padding-bottom: 2px;
+    border: 1px solid #c0c0c0;
+}*/
+/*.header__logo {
+	width: 179px;
+	height: 100px;
+    display: inline-block;
+}
+.header__right {
+    vertical-align: top;
+    display: inline-block;	
+}
+.header__contacts {
+    vertical-align: top;
+    margin-top: 10px;
+    margin-left: 55px;
+	font-size: 18px;
+	color: #B45F04;
+	font-weight: bold;
+}
+.header__phone {
+    display: block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 50px;
+	font-size: 18px;
+	color: #B45F04;
+	font-weight: bold;
+	text-decoration: none;
+
+}*/
+/*-------------------- FOOTER BLOCK --------------------*/
+/*.footer {
+	background: #e2e2e2;
+}
+.footer__wrap {
+	margin: 0 auto;
+	width: 600px;
+	height: 100px;
+	position: relative;
+}
+.footer__logo {
+	position: absolute;
+	top: 0px;
+	right: 20px;
+}
+.footer__logo:hover {
+	outline: 1px solid #B45F04;
+}*/
+
+/*====================== MEDIA =========================*/
+/*@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .text,
+    .link {
+        font-size: 26px;
+        line-height: 35px;
+    }
+    .header__contacts,
+    .header__phone {
+        margin-left: 20px;
+	    font-size: 20px;
+    }
+}*/

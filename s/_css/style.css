@@ -1,0 +1,43 @@
+
+body {
+	font-family: Palatino, "Palatino Lynotype", "Book Antiqua", "Hoefler Text",
+	Georgia, "Lucida Bright", Cambria, Times, "Times New Roman", serif;
+}
+.divider { margin-top:5px; margin-bottom:5px; height:1px; width:100%; border-top:1px solid gray; }
+
+input[type="radio"]{ display: none; }
+
+input[type="radio"]+span:before {
+content: "";
+display: inline-block;
+width: 104px;
+height: 104px;
+margin-bottom: -2px;
+margin-right: 2px;
+background-size: cover cover;
+}
+
+input[type="radio"]:checked+span:before {border: 2px solid red;}
+
+.c1 input[type="radio"]+span:before {background: url(../_img/cs_plate.png) no-repeat center center;}
+.c2 input[type="radio"]+span:before {background: url(../_img/cs_h_rect.png) no-repeat center center;}
+.c3 input[type="radio"]+span:before {background: url(../_img/cs_circle.png) no-repeat center center;}
+.c4 input[type="radio"]+span:before {background: url(../_img/cs_h_circle.png) no-repeat center center;}
+
+.b1 input[type="radio"]+span:before {background: url(../_img/bend_01.png) no-repeat center center;}
+.b2 input[type="radio"]+span:before {background: url(../_img/bend_02.png) no-repeat center center;}
+
+.r1 input[type="radio"]+span:before {background: url(../_img/r1p/cs22.png) no-repeat center center;}
+.r2 input[type="radio"]+span:before {background: url(../_img/r1p/cs23.png) no-repeat center center;}
+
+.d1 input[type="radio"]+span:before {background: url(../_img/dfr/single.png) no-repeat center center;}
+.d2 input[type="radio"]+span:before {background: url(../_img/dfr/double.png) no-repeat center center;}
+
+.y10 input[type="radio"]+span:before {background: url(../_img/Y/y10.png) no-repeat center center;}
+.y11 input[type="radio"]+span:before {background: url(../_img/Y/y10.png) no-repeat center center;}
+
+.p3 input[type="radio"]+span:before {background: url(../_img/Y/3points.png) no-repeat center center;}
+.p7 input[type="radio"]+span:before {background: url(../_img/Y/7points.png) no-repeat center center;}
+
+.dtr1 input[type="radio"]+span:before {background: url(../_img/Y/gen_visual.png) no-repeat center center;}
+.dtr2 input[type="radio"]+span:before {background: url(../_img/Y/det_visual.png) no-repeat center center;}
