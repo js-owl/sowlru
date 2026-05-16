@@ -81,7 +81,7 @@ if (!empty($_POST[name]) and !empty($_POST[email]) and
 	<div class="footer">
 		<div class="footer__wrap">
 			<p class="text">&copy; частный Mонтессори детский сад "Совенок".</p>
-			<p class="text">Все права защищены. 2016-2017</p>
+			<p class="text">Все права защищены. 2016-2026</p>
 			<img class="footer__logo" src="images/logo_footer.png" alt="">
 		</div>
 	</div>
