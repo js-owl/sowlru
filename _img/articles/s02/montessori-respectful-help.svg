@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Respectful help in Montessori education</title>
+  <desc id="desc">An adult offers gentle help while a child keeps initiative.</desc>
+  <rect width="700" height="360" fill="#f5efe8"/>
+  <circle cx="234" cy="126" r="34" fill="#f4c39c"/>
+  <rect x="184" y="170" width="100" height="104" rx="30" fill="#8fa9d6"/>
+  <circle cx="506" cy="112" r="40" fill="#f4c39c"/>
+  <rect x="452" y="160" width="108" height="116" rx="34" fill="#6f9d83"/>
+  <path d="M452 198c-38 12-70 34-96 66" fill="none" stroke="#7b6a58" stroke-width="11" stroke-linecap="round"/>
+  <path d="M284 202c28 28 58 42 92 42" fill="none" stroke="#7b6a58" stroke-width="11" stroke-linecap="round"/>
+  <rect x="326" y="224" width="86" height="44" rx="10" fill="#fffaf3" stroke="#b8783c" stroke-width="5"/>
+  <path d="M348 246l14 14 30-32" fill="none" stroke="#9dc7b6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="288" width="460" height="18" rx="9" fill="#b8783c" opacity=".4"/>
+</svg>

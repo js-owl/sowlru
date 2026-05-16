@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Montessori independence skills</title>
+  <desc id="desc">A preschool child practices practical life skills with water and cleaning tools.</desc>
+  <rect width="700" height="360" fill="#f6efe8"/>
+  <circle cx="226" cy="126" r="34" fill="#f4c39c"/>
+  <rect x="176" y="168" width="100" height="106" rx="30" fill="#9dc7b6"/>
+  <path d="M276 198c42 12 68 34 82 68" fill="none" stroke="#7b6a58" stroke-width="12" stroke-linecap="round"/>
+  <rect x="354" y="218" width="78" height="74" rx="12" fill="#8fa9d6"/>
+  <path d="M372 218v-34c0-24 42-24 42 0v34" fill="none" stroke="#8fa9d6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M438 244c42 8 66 24 72 46" fill="none" stroke="#72a6c8" stroke-width="8" stroke-linecap="round"/>
+  <rect x="96" y="280" width="508" height="20" rx="10" fill="#b8783c" opacity=".45"/>
+  <rect x="486" y="148" width="60" height="130" rx="10" fill="#d59a54"/>
+  <line x1="516" y1="148" x2="516" y2="92" stroke="#7b6a58" stroke-width="8" stroke-linecap="round"/>
+  <path d="M492 280h48l-8 36h-32z" fill="#c98b5f"/>
+</svg>

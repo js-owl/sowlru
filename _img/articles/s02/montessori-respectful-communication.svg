@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Respectful communication with a child</title>
+  <desc id="desc">An adult and a child talk calmly and respectfully in a Montessori setting.</desc>
+  <rect width="700" height="360" fill="#eef4ee"/>
+  <circle cx="234" cy="138" r="36" fill="#f4c39c"/>
+  <rect x="184" y="182" width="100" height="96" rx="30" fill="#d59a54"/>
+  <circle cx="466" cy="118" r="42" fill="#f4c39c"/>
+  <rect x="410" y="170" width="112" height="110" rx="34" fill="#6f9d83"/>
+  <path d="M294 112h82c20 0 36 16 36 36s-16 36-36 36h-42l-34 34v-34h-6c-20 0-36-16-36-36s16-36 36-36z" fill="#fffaf3" stroke="#b8783c" stroke-width="5"/>
+  <circle cx="314" cy="148" r="7" fill="#9dc7b6"/>
+  <circle cx="350" cy="148" r="7" fill="#9dc7b6"/>
+  <circle cx="386" cy="148" r="7" fill="#9dc7b6"/>
+  <path d="M284 218c40 18 82 20 126 6" fill="none" stroke="#7b6a58" stroke-width="10" stroke-linecap="round"/>
+  <rect x="142" y="292" width="416" height="18" rx="9" fill="#b8783c" opacity=".4"/>
+</svg>

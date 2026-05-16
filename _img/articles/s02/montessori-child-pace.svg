@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Respecting the child's pace</title>
+  <desc id="desc">A child repeats a Montessori activity at a calm personal pace.</desc>
+  <rect width="700" height="360" fill="#f7f1e8"/>
+  <circle cx="220" cy="128" r="36" fill="#f4c39c"/>
+  <rect x="168" y="174" width="104" height="104" rx="30" fill="#9dc7b6"/>
+  <rect x="318" y="208" width="170" height="64" rx="14" fill="#fffaf3" stroke="#b8783c" stroke-width="5"/>
+  <circle cx="350" cy="240" r="16" fill="#8fa9d6"/>
+  <circle cx="402" cy="240" r="16" fill="#d59a54"/>
+  <circle cx="454" cy="240" r="16" fill="#6f9d83"/>
+  <path d="M296 108a92 92 0 1 1-8 136" fill="none" stroke="#c98b5f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M292 86l4 48 42-24" fill="#c98b5f"/>
+  <path d="M272 206c34-18 68-20 102-6" fill="none" stroke="#7b6a58" stroke-width="10" stroke-linecap="round"/>
+  <rect x="124" y="286" width="452" height="18" rx="9" fill="#b8783c" opacity=".45"/>
+</svg>

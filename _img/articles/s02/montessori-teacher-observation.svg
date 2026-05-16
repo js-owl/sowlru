@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Montessori teacher observation</title>
+  <desc id="desc">A teacher observes a child working independently with Montessori material.</desc>
+  <rect width="700" height="360" fill="#eef5ef"/>
+  <circle cx="214" cy="130" r="34" fill="#f4c39c"/>
+  <rect x="166" y="172" width="96" height="100" rx="30" fill="#8fa9d6"/>
+  <circle cx="478" cy="112" r="40" fill="#f4c39c"/>
+  <rect x="426" y="158" width="104" height="116" rx="34" fill="#6f9d83"/>
+  <rect x="278" y="244" width="160" height="24" rx="12" fill="#b8783c" opacity=".55"/>
+  <rect x="304" y="195" width="110" height="48" rx="10" fill="#fffaf3" stroke="#c98b5f" stroke-width="5"/>
+  <circle cx="332" cy="219" r="12" fill="#d59a54"/>
+  <circle cx="358" cy="219" r="12" fill="#9dc7b6"/>
+  <circle cx="384" cy="219" r="12" fill="#8fa9d6"/>
+  <path d="M426 190c-44-8-82-10-118 12" fill="none" stroke="#7b6a58" stroke-width="10" stroke-linecap="round"/>
+  <path d="M262 198c28-30 64-42 108-36" fill="none" stroke="#7b6a58" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="552" cy="86" r="44" fill="none" stroke="#b8783c" stroke-width="8"/>
+  <line x1="583" y1="117" x2="626" y2="160" stroke="#b8783c" stroke-width="10" stroke-linecap="round"/>
+</svg>
