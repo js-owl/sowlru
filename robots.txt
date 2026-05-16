@@ -3,6 +3,10 @@ User-agent: *
 Disallow: /gallery/
 Disallow: /t/
 Disallow: /r/
+Disallow: /tem.html
+Disallow: /tem2.html
+Disallow: /07_Rashod/
+Disallow: /seo_report/
 
 Sitemap: https://sowl.ru/sitemap.xml
 
