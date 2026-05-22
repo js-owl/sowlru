@@ -44,6 +44,8 @@ ExpiresByType application/xhtml+xml "access plus 600 seconds"
 
 <ifModule mod_rewrite.c>
 	RewriteEngine On
+	RewriteCond %{HTTP_HOST} ^www\.sowl\.ru$ [NC]
+	RewriteRule ^(.*)$ https://sowl.ru/$1 [R=301,L]
 	RewriteCond %{HTTPS} off
 	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 

@@ -1,16 +1,27 @@
 (function (window, document) {
   var loaded = false;
 
-  function loadAnalytics() {
-    if (loaded) {
+  function loadGoogleAnalytics() {
+    var ga4Id = window.SOWL_GA4_ID;
+
+    if (ga4Id) {
+      var gtagScript = document.createElement("script");
+      gtagScript.async = true;
+      gtagScript.src =
+        "https://www.googletagmanager.com/gtag/js?id=" +
+        encodeURIComponent(ga4Id);
+      document.head.appendChild(gtagScript);
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          window.dataLayer.push(arguments);
+        };
+      window.gtag("js", new Date());
+      window.gtag("config", ga4Id, { anonymize_ip: true });
       return;
     }
-    loaded = true;
-
-    ["scroll", "click", "touchstart", "keydown"].forEach(function (eventName) {
-      window.removeEventListener(eventName, loadAnalytics, true);
-    });
-    window.removeEventListener("load", loadAnalytics);
 
     window.GoogleAnalyticsObject = "ga";
     window.ga =
@@ -28,6 +39,20 @@
       window.ga("send", "pageview");
     };
     document.head.appendChild(gaScript);
+  }
+
+  function loadAnalytics() {
+    if (loaded) {
+      return;
+    }
+    loaded = true;
+
+    ["scroll", "click", "touchstart", "keydown"].forEach(function (eventName) {
+      window.removeEventListener(eventName, loadAnalytics, true);
+    });
+    window.removeEventListener("load", loadAnalytics);
+
+    loadGoogleAnalytics();
 
     window.yandex_metrika_callbacks = window.yandex_metrika_callbacks || [];
     window.yandex_metrika_callbacks.push(function () {
