@@ -194,30 +194,6 @@ html {
   margin: 0 auto 12px;
 }
 
-.landing-hero-wrap {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(../_img/p4_700.webp) center center / cover no-repeat;
-  min-height: 340px;
-  padding: 48px 20px 56px;
-  text-align: center;
-  border: none;
-}
-
-.landing-hero-wrap h1 {
-  color: #fff;
-  font-size: 30px;
-  margin: 0 0 14px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-}
-
-.landing-hero-wrap .hero-subtitle {
-  color: #fff;
-  font-size: 18px;
-  margin: 0 auto 22px;
-  max-width: 720px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
 .btn-cta {
   display: inline-block;
   padding: 12px 28px;
@@ -385,21 +361,6 @@ html {
 .contacts-block address {
   font-size: 16px;
   margin-bottom: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .landing-hero-wrap {
-    min-height: 260px;
-    padding: 32px 12px 40px;
-  }
-
-  .landing-hero-wrap h1 {
-    font-size: 22px;
-  }
-
-  .landing-hero-wrap .hero-subtitle {
-    font-size: 16px;
-  }
 }
 
 /*---------------------- article page ------------------------*/
