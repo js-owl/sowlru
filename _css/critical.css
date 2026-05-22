@@ -1,0 +1,240 @@
+/* Above-the-fold styles for index.html (inlined in <head>) */
+:root {
+  --primary-color: #333;
+  --secondary-color: #ab5a03;
+  --muted-color: #555;
+  --font-text: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Manrope", var(--font-text);
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-image: url(_img/bg.png);
+  background-image: url(_img/bg.webp);
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f4f4f4;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 5px 0;
+}
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+.row:after {
+  clear: both;
+}
+[class*="col-"] {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-12 {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+}
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  margin-top: 10px;
+  color: var(--secondary-color);
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.p0 {
+  padding: 0;
+}
+.bdn {
+  border: none;
+}
+.address {
+  text-align: center;
+  color: var(--secondary-color);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 20px;
+}
+.phone {
+  text-align: right;
+  color: var(--secondary-color);
+  margin-top: 20px;
+}
+.phone a {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.navbar {
+  margin-bottom: 0;
+  min-height: 50px;
+  border: 1px solid transparent;
+  background-color: #f4f4f4;
+}
+.navbar-header:before,
+.navbar-header:after,
+.navbar:before,
+.navbar:after,
+.container-fluid:before,
+.container-fluid:after {
+  display: table;
+  content: " ";
+}
+.navbar-header:after,
+.navbar:after,
+.container-fluid:after {
+  clear: both;
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--muted-color);
+  text-decoration: none;
+}
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.navbar-collapse {
+  display: none;
+}
+@media (min-width: 768px) {
+  .navbar-header {
+    float: left;
+  }
+  .navbar-toggle {
+    display: none;
+  }
+  .navbar-collapse {
+    display: block !important;
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
+  .navbar-nav {
+    float: left;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    padding: 15px;
+    display: block;
+    color: var(--muted-color);
+    text-decoration: none;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -30,7 +30,8 @@
 }
 
 body {
-  background: url(../_img/bg.png);
+  background-image: url(../_img/bg.png);
+  background-image: url(../_img/bg.webp);
   font-family: var(--font-text);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
@@ -75,11 +76,21 @@ h3 {
 a {
   font-size: var(--font-size-base);
   color: var(--secondary-color);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 a:hover {
   color: black;
+}
+
+a.button,
+a.btn-cta,
+.landing-quicknav a,
+.navbar-nav a,
+.navbar-brand,
+.edu-tag,
+a:has(> img) {
   text-decoration: none;
 }
 
@@ -459,12 +470,21 @@ html {
   padding: 0;
 }
 
+.panel-faq .panel-title {
+  font-size: var(--font-size-base);
+}
+
 .panel-faq .panel-title a {
   display: block;
   padding: 12px 15px;
   font-family: var(--font-text);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-tight);
+  text-decoration: none;
+}
+
+.panel-faq .panel-title a:hover {
+  text-decoration: underline;
 }
 
 .contacts-block address {
@@ -495,8 +515,8 @@ html {
 
 .yandex-reviews-widget__link {
   box-sizing: border-box;
-  text-decoration: none;
-  color: #b3b3b3;
+  text-decoration: underline;
+  color: #595959;
   font-size: 10px;
   font-family: var(--font-text);
   position: absolute;
