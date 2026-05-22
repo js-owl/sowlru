@@ -182,6 +182,226 @@ li {
 .cell2 {
   width: 150px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--muted-color);
+  max-width: 820px;
+  margin: 0 auto 12px;
+}
+
+.landing-hero-wrap {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url(../_img/p4_700.webp) center center / cover no-repeat;
+  min-height: 340px;
+  padding: 48px 20px 56px;
+  text-align: center;
+  border: none;
+}
+
+.landing-hero-wrap h1 {
+  color: #fff;
+  font-size: 30px;
+  margin: 0 0 14px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.landing-hero-wrap .hero-subtitle {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 auto 22px;
+  max-width: 720px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  background: linear-gradient(#fff8ef, #f0dcc4);
+  border: 1px solid var(--secondary-color);
+}
+
+.landing-quicknav {
+  background: #eee;
+  padding: 10px 5px;
+  text-align: center;
+  border: none;
+}
+
+.landing-quicknav a {
+  display: inline-block;
+  margin: 4px 6px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.landing-quicknav a:hover {
+  background: #fff8ef;
+}
+
+.welcome-strip {
+  background: #fff8ef;
+  padding: 18px 15px;
+  text-align: center;
+  border: none;
+}
+
+.welcome-strip p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.advantage-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 14px 14px 10px;
+  margin-bottom: 15px;
+  min-height: 150px;
+}
+
+.advantage-card h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.advantage-card p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.feature-block {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 15px;
+}
+
+.edu-tag {
+  display: block;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.edu-tag:hover {
+  background: #fff8ef;
+  color: var(--secondary-color);
+}
+
+.gallery-thumb {
+  margin-bottom: 15px;
+}
+
+.gallery-thumb img {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.tariff-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 18px 16px;
+  margin-bottom: 20px;
+  min-height: 100%;
+}
+
+.tariff-card h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.tariff-card .tariff-time {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.tariff-card ul {
+  padding-left: 0;
+  margin-bottom: 16px;
+}
+
+.tariff-card li {
+  background: url(../_img/check.png) no-repeat 1px 5px;
+  padding: 0 0 6px 28px;
+  list-style: none;
+  font-size: 15px;
+}
+
+.tariff-card .tariff-note {
+  font-size: 14px;
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+.tariff-card .button {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.cta-band {
+  background: #fff8ef;
+  padding: 20px 15px;
+  border: none;
+}
+
+.cta-band .zayavka {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.panel-faq .panel-heading {
+  padding: 0;
+}
+
+.panel-faq .panel-title a {
+  display: block;
+  padding: 12px 15px;
+  font-weight: bold;
+}
+
+.contacts-block address {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-hero-wrap {
+    min-height: 260px;
+    padding: 32px 12px 40px;
+  }
+
+  .landing-hero-wrap h1 {
+    font-size: 22px;
+  }
+
+  .landing-hero-wrap .hero-subtitle {
+    font-size: 16px;
+  }
+}
+
 /*---------------------- article page ------------------------*/
 .article-figure {
   margin: 14px auto 18px;
