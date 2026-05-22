@@ -44,16 +44,14 @@
       rel="preload"
       as="image"
       type="image/webp"
-      href="_img/p4_640.webp"
-      media="(max-width: 767px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      as="image"
-      type="image/webp"
       href="_img/p4_768.webp"
-      media="(min-width: 768px) and (max-width: 1199px)"
+      imagesrcset="
+        _img/p4_640.webp 640w,
+        _img/p4_768.webp 768w,
+        _img/p4_960.webp 960w,
+        _img/p4_700.webp 1278w
+      "
+      imagesizes="(max-width: 767px) 100vw, (max-width: 991px) 750px, (max-width: 1199px) 970px, 1170px"
       fetchpriority="high"
     />
     <link
