@@ -4,9 +4,10 @@
   --muted-color: #555; /* 525252 */
 
   /* Типографика в духе dzen.ru: Onest ≈ Stella Sans Text, Manrope ≈ Display */
-  --font-text: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Manrope", var(--font-text);
+  --font-text: "Onest", "Onest Fallback", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial,
+    sans-serif;
+  --font-display: "Manrope", "Manrope Fallback", var(--font-text);
 
   --font-size-base: 16px;
   --font-size-sm: 14px;
