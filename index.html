@@ -14,7 +14,18 @@
       content="частный детский сад Мытищи, детский сад Мытищи, частный садик Мытищи, Монтессори сад Мытищи"
     />
     <title>Частный детский сад в Мытищах | Совенок</title>
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="_img/p4_640.webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="_css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="_css/style.css" />
     <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
     <link rel="icon" type="image/png" sizes="120x120" href="favicon128.png" />
@@ -172,8 +183,16 @@
           <h1>Частный детский сад в Мытищах «Совенок»</h1>
           <img
             src="_img/p4_700.webp"
+            srcset="
+              _img/p4_640.webp 640w,
+              _img/p4_960.webp 960w,
+              _img/p4_700.webp 1278w
+            "
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 960px, 1278px"
             width="1278"
             height="700"
+            fetchpriority="high"
+            decoding="async"
             style="width: 100%; height: auto"
             alt="частный детский сад в Мытищах Совенок"
           />
@@ -392,7 +411,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-01.jpeg"
+            src="_img/gallery-01.webp"
             alt="дети занимаются с Монтессори-материалами"
             loading="lazy"
           />
@@ -400,7 +419,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-02.jpeg"
+            src="_img/gallery-02.webp"
             alt="Монтессори-материал золотые бусины"
             loading="lazy"
           />
@@ -408,7 +427,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-03.jpeg"
+            src="_img/gallery-03.webp"
             alt="традиционные Монтессори-материалы"
             loading="lazy"
           />
@@ -416,7 +435,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-04.jpeg"
+            src="_img/gallery-04.webp"
             alt="подготовленная среда Монтессори-класса"
             loading="lazy"
           />
@@ -424,7 +443,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-05.jpeg"
+            src="_img/gallery-05.webp"
             alt="дети на занятии"
             loading="lazy"
           />
@@ -432,7 +451,7 @@
         <div class="col-xs-12 col-sm-4 gallery-thumb">
           <img
             class="img-responsive img-rounded"
-            src="_img/gallery-06.jpeg"
+            src="_img/gallery-06.webp"
             alt="занятия с воспитателем"
             loading="lazy"
           />
@@ -843,59 +862,7 @@
       </div>
     </div>
 
-    <!-- Google.Analitics counter -->
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
-
-      ga("create", "UA-80184128-1", "auto");
-      ga("send", "pageview");
-    </script>
-    <!-- Yandex.Metrika counter -->
-    <script>
-      (function (d, w, c) {
-        (w[c] = w[c] || []).push(function () {
-          try {
-            w.yaCounter38548030 = new Ya.Metrika({
-              id: 38548030,
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-            });
-          } catch (e) {}
-        });
-        var n = d.getElementsByTagName("script")[0],
-          s = d.createElement("script"),
-          f = function () {
-            n.parentNode.insertBefore(s, n);
-          };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-        if (w.opera == "[object Opera]") {
-          d.addEventListener("DOMContentLoaded", f, false);
-        } else {
-          f();
-        }
-      })(document, window, "yandex_metrika_callbacks");
-    </script>
+    <script src="_js/analytics-deferred.js"></script>
     <noscript
       ><div>
         <img
@@ -904,7 +871,6 @@
           alt=""
         /></div
     ></noscript>
-    <!-- /Yandex.Metrika counter -->
     <script src="_js/jquery.min.js"></script>
     <script src="_js/bootstrap.min.js"></script>
     <script src="_js/main.min.js"></script>
