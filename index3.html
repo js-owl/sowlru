@@ -625,19 +625,9 @@
     }
 
     /* Contact / form */
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      max-width: 1000px;
+    .request-form {
+      max-width: 420px;
       margin: 0 auto;
-    }
-
-    .contact-info p,
-    .contact-info address {
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
-      font-style: normal;
     }
 
     .contacts-details {
@@ -675,25 +665,6 @@
       border-color: var(--main-brown);
     }
 
-    .form-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .form-consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .form-consent input {
-      margin-top: 0.2rem;
-      flex-shrink: 0;
-    }
-
     /* Footer */
     footer {
       background-color: var(--text-brown);
@@ -722,8 +693,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .split,
-      .contact-container {
+      .split {
         grid-template-columns: 1fr;
       }
     }
@@ -1254,44 +1224,17 @@
 
     <section id="request" class="bg-alt">
       <h2>Запись на пробное занятие</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <p class="form-note">
-            Оставьте заявку — перезвоним в рабочее время (пн–пт, 8:00–20:00)
-            в течение дня или позвоните
-            <a href="tel:+79057750627">+7 (905) 775-06-27</a>.
-          </p>
-          <address>
-            <strong>Частный Монтессори детский сад «Совенок»</strong><br />
-            141002, Московская область, г. Мытищи, ул. Колпакова, д. 24
-          </address>
-          <p>
-            Телефон:
-            <a href="tel:+79057750627"><strong>+7 (905) 775-06-27</strong></a>
-          </p>
-          <p>
-            E-mail:
-            <a href="mailto:klimovskih@yandex.ru">klimovskih@yandex.ru</a>
-          </p>
-          <p><strong>Режим работы:</strong> понедельник – пятница, 8:00 – 20:00</p>
-          <p>
-            <a href="#contacts">Схема проезда</a> ·
-            <a href="#documents">Лицензия</a> ·
-            <a href="https://sowl.ru/privacy.html">Политика ПДн</a>
-          </p>
-        </div>
-        <form id="form" class="contact-form" action="mail.php" method="post">
-          <label for="request-name" class="sr-only">Ваше имя</label>
-          <input type="text" id="request-name" name="name" placeholder="Ваше имя" autocomplete="name" required />
-          <label for="request-phone" class="sr-only">Ваш телефон</label>
-          <input type="tel" id="request-phone" name="phone" placeholder="Ваш телефон" autocomplete="tel" required />
-          <label class="form-consent">
-            <input type="checkbox" id="request-consent" name="consent" value="1" required />
-            <span>Согласен(на) на <a href="https://sowl.ru/privacy.html" target="_blank" rel="noopener noreferrer">обработку персональных данных</a></span>
-          </label>
-          <button type="submit" class="btn">Отправить заявку</button>
-        </form>
-      </div>
+      <p class="section-lead">
+        Оставьте заявку — перезвоним в рабочее время (пн–пт, 8:00–20:00)
+        или позвоните <a href="tel:+79057750627">+7 (905) 775-06-27</a>.
+      </p>
+      <form id="form" class="contact-form request-form" action="mail.php" method="post">
+        <label for="request-name" class="sr-only">Ваше имя</label>
+        <input type="text" id="request-name" name="name" placeholder="Ваше имя" autocomplete="name" required />
+        <label for="request-phone" class="sr-only">Ваш телефон</label>
+        <input type="tel" id="request-phone" name="phone" placeholder="Ваш телефон" autocomplete="tel" required />
+        <button type="submit" class="btn">Отправить заявку</button>
+      </form>
     </section>
 
     <section id="faq">
@@ -1400,9 +1343,7 @@
           ОГРНИП 31650290005949 выдан 15.07.2016&nbsp;г. ФНС по г. Мытищи<br />
           Режим работы детского сада: понедельник–пятница, 8:00–20:00<br />
           Телефон: <a href="tel:+79057750627">+7 (905) 775-06-27</a><br />
-          E-mail: <a href="mailto:klimovskih@yandex.ru">klimovskih@yandex.ru</a><br />
-          Основная страница:
-          <a href="https://sowl.ru/">частный детский сад в Мытищах</a>
+          E-mail: <a href="mailto:klimovskih@yandex.ru">klimovskih@yandex.ru</a>
         </p>
       </div>
       <div class="contacts-map">
