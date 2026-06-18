@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частный детский сад «Совёнок»</title>
+    
+    <!-- Подключаем современный дружелюбный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Цветовая палитра и переменные */
+        :root {
+            --bg-cream: #FDFBF7;
+            --bg-cream-dark: #F5EFE6;
+            --text-brown: #4A3F35;
+            --main-brown: #8B5A2B;
+            --light-brown: #D2B48C;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        /* Базовые настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Плавная прокрутка */
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: var(--bg-cream);
+            color: var(--text-brown);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-brown);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--main-brown);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-brown);
+            transition: var(--transition);
+        }
+
+        /* Навигация (Липкое меню) */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 15px rgba(74, 63, 53, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--main-brown);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--main-brown);
+            text-shadow: 0 0 1px var(--light-brown);
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            background-color: var(--main-brown);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+            transition: var(--transition);
+            border: 2px solid var(--main-brown);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--main-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 90, 43, 0.2);
+        }
+
+        /* Секции */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .bg-alt {
+            background-color: var(--bg-cream-dark);
+        }
+
+        /* Главный экран (Hero) */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(253,251,247,0.9) 0%, rgba(210,180,140,0.6) 100%), url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            padding: 2rem 5%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text-brown);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            font-weight: 600;
+        }
+
+        /* Сетки для карточек */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Карточки (с анимацией) */
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(74, 63, 53, 0.05);
+            transition: var(--transition);
+            border-bottom: 5px solid var(--light-brown);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(74, 63, 53, 0.15);
+            border-bottom-color: var(--main-brown);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Аккордеон FAQ */
+        details {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        summary {
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--white);
+        }
+
+        summary::after {
+            content: '▼';
+            color: var(--main-brown);
+            transition: var(--transition);
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        details p {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid var(--bg-cream-dark);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        /* Отзывы */
+        .review-card {
+            text-align: left;
+            font-style: italic;
+        }
+        .review-author {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-style: normal;
+            color: var(--main-brown);
+        }
+
+        /* Контакты */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--bg-cream-dark);
+            border-radius: 10px;
+            font-family: 'Comfortaa', cursive;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--main-brown);
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--text-brown);
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            nav {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационное меню -->
+    <header>
+        <div class="logo">🦉 Совёнок</div>
+        <nav>
+            <a href="#about">О саде</a>
+            <a href="#parents">Родителям</a>
+            <a href="#teachers">Педагоги</a>
+            <a href="#activities">Занятия</a>
+            <a href="#faq">Частые вопросы</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section id="hero" class="hero">
+        <h1>Где каждый ребёнок расправляет крылья!</h1>
+        <p>Современный частный детский сад «Совёнок» с заботой о здоровье, интеллекте и творческом потенциале вашего малыша.</p>
+        <a href="#contacts" class="btn">Записаться на экскурсию</a>
+    </section>
+
+    <!-- 1. О саде -->
+    <section id="about">
+        <h2>Наша история</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Садик «Совёнок» был основан в 2015 году мамами, которые искали идеальное место для своих детей. Мы создали пространство, где малыши чувствуют себя как дома.</p>
+            <p style="font-size: 1.2rem;">Наша миссия — бережное развитие. Мы не просто присматриваем за детьми, мы помогаем им познавать мир, учим дружить, мечтать и верить в свои силы, используя передовые методики гуманной педагогики.</p>
+        </div>
+    </section>
+
+    <!-- 2. Родителям -->
+    <section id="parents" class="bg-alt">
+        <h2>Информация для родителей</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⏰</div>
+                <h3>Режим работы</h3>
+                <p>Мы открыты с 8:00 до 19:00 по будням. Возможна организация группы продленного дня до 20:00.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🍎</div>
+                <h3>Питание</h3>
+                <p>5-разовое здоровое питание от собственного шеф-повара. Учитываем аллергии и индивидуальные предпочтения.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Безопасность</h3>
+                <p>Закрытая территория, видеонаблюдение, система очистки воздуха и регулярные медицинские осмотры.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Педагоги -->
+    <section id="teachers">
+        <h2>Наши педагоги</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">👩‍🏫</div>
+                <h3>Анна Иванова</h3>
+                <p>Старший воспитатель. Опыт работы более 10 лет. Специалист по раннему развитию и Монтессори-педагогике.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👨‍🎨</div>
+                <h3>Игорь Смирнов</h3>
+                <p>Преподаватель ИЗО и лепки. Раскрывает творческий потенциал каждого малыша через искусство.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👩‍🎤</div>
+                <h3>Елена Попова</h3>
+                <p>Музыкальный руководитель. Ведет ритмику, развивает слух и ставит незабываемые детские праздники.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Документы (Обычно это небольшой блок или ссылки) -->
+    <section id="documents" class="bg-alt" style="text-align: center;">
+        <h2>Документы</h2>
+        <p style="margin-bottom: 2rem;">Наш детский сад имеет все необходимые лицензии и сертификаты.</p>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <a href="#" class="btn" style="background: var(--white); color: var(--main-brown);">📄 Лицензия на обр. деятельность</a>
+            <a href="#" class="btn" style="background: var(--white); color: var(--main-brown);">📄 Пример договора</a>
+            <a href="#" class="btn" style="background: var(--white); color: var(--main-brown);">📄 Правила приема</a>
+        </div>
+    </section>
+
+    <!-- 5. Занятия -->
+    <section id="activities">
+        <h2>Наши занятия</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🇬🇧</div>
+                <h3>Английский язык</h3>
+                <p>Изучение языка в игровой форме с носителем. Песни, сказки и живое общение.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧩</div>
+                <h3>Логика и математика</h3>
+                <p>Основы счета, формы и развитие пространственного мышления через головоломки.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏃‍♂️</div>
+                <h3>Спорт и гимнастика</h3>
+                <p>Ежедневная зарядка, эстафеты и профилактика плоскостопия в нашем спортзале.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Частые вопросы -->
+    <section id="faq" class="bg-alt">
+        <h2>Частые вопросы</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <details>
+                <summary>С какого возраста вы принимаете детей?</summary>
+                <p>Мы принимаем малышей в ясельную группу начиная с 1.5 лет. Для комфортной адаптации у нас предусмотрена специальная программа мягкого привыкания.</p>
+            </details>
+            <details>
+                <summary>Как проходит адаптация?</summary>
+                <p>В первую неделю малыш находится в садике 2-3 часа вместе с мамой или папой. Затем время постепенно увеличивается, в зависимости от психологической готовности ребенка.</p>
+            </details>
+            <details>
+                <summary>Что нужно брать с собой в садик?</summary>
+                <p>Вам понадобится сменная обувь, два комплекта запасной одежды, пижама для тихого часа и спортивная форма (шорты, футболка, чешки).</p>
+            </details>
+            <details>
+                <summary>Можно ли наблюдать за ребенком онлайн?</summary>
+                <p>Да, для родителей у нас есть защищенное приложение с доступом к камерам видеонаблюдения в игровых комнатах.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 7. Отзывы -->
+    <section id="reviews">
+        <h2>Отзывы родителей</h2>
+        <div class="grid">
+            <div class="card review-card">
+                <p>"Замечательный садик! Дочка бежит туда по утрам с радостью. Очень нравится подход воспитателей и разнообразие занятий."</p>
+                <div class="review-author">— Мария, мама Алисы (4 года)</div>
+            </div>
+            <div class="card review-card">
+                <p>"Долго искали сад с хорошим питанием из-за аллергии. В «Совёнке» нам пошли навстречу, шеф-повар готовит отдельно. Спасибо вам!"</p>
+                <div class="review-author">— Дмитрий, папа Максима (3 года)</div>
+            </div>
+            <div class="card review-card">
+                <p>"Прекрасная подготовка к школе. Ребенок научился читать, считать и с удовольствием учит английские слова. Рекомендуем всем!"</p>
+                <div class="review-author">— Екатерина, мама Софии (6 лет)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Контакты -->
+    <section id="contacts" class="bg-alt">
+        <h2>Свяжитесь с нами</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Ждем вас в гости!</h3>
+                <p>📍 <strong>Адрес:</strong> г. Москва, ул. Счастливого Детства, д. 5</p>
+                <p>📞 <strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                <p>✉️ <strong>Email:</strong> hello@sovenok-sad.ru</p>
+                <p>🕒 <strong>Часы работы:</strong> Пн-Пт, 08:00 - 19:00</p>
+                <br>
+                <p><em>Оставьте заявку, и наша заведующая перезвонит вам в течение 15 минут, чтобы ответить на все вопросы.</em></p>
+            </div>
+            <form class="contact-form" action="#" method="POST">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Ваш телефон" required>
+                <input type="text" placeholder="Имя и возраст ребенка" required>
+                <textarea rows="4" placeholder="Ваши вопросы или пожелания..."></textarea>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 Частный детский сад «Совёнок». Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
