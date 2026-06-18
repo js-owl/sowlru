@@ -640,6 +640,19 @@
       font-style: normal;
     }
 
+    .contacts-details {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .contacts-map {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -905,12 +918,12 @@
         />
       </a>
       <nav class="header-nav" id="main-nav" aria-label="Навигация">
-        <a href="https://sowl.ru/about.html">О нас</a>
-        <a href="https://sowl.ru/detsad.html">Детский сад</a>
-        <a href="https://sowl.ru/center/">Центр</a>
-        <a href="https://sowl.ru/articles/">Статьи</a>
-        <a href="https://sowl.ru/contacts.html">Контакты</a>
+        <!-- <a href="https://sowl.ru/about.html">О нас</a> -->
+        <!-- <a href="https://sowl.ru/detsad.html">Детский сад</a> -->
+
+        <!-- <a href="https://sowl.ru/articles/">Статьи</a> -->
         <a href="#about">О саде</a>
+        <a href="https://sowl.ru/center/">Центр</a>
         <a href="#montessori">Монтессори</a>
         <a href="#team">Команда</a>
         <a href="#parents">Тарифы</a>
@@ -918,6 +931,7 @@
         <a href="#request">Запись</a>
         <a href="#faq">Вопросы</a>
         <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
       </nav>
       <a href="tel:+79057750627" class="header-phone">+7 (905) 775-06-27</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Меню</button>
@@ -1261,7 +1275,7 @@
           </p>
           <p><strong>Режим работы:</strong> понедельник – пятница, 8:00 – 20:00</p>
           <p>
-            <a href="https://sowl.ru/contacts.html">Схема проезда</a> ·
+            <a href="#contacts">Схема проезда</a> ·
             <a href="#documents">Лицензия</a> ·
             <a href="https://sowl.ru/privacy.html">Политика ПДн</a>
           </p>
@@ -1368,6 +1382,36 @@
           target="_blank"
           rel="noopener noreferrer"
         >Частный детский сад Совёнок на карте Мытищ — Яндекс Карты</a>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <p class="section-lead">
+        Контакты детского сада и центра «Совёнок» в Мытищах
+      </p>
+      <div class="prose contacts-details">
+        <p>
+          Частный Монтессори детский сад «Совёнок»<br />
+          Адрес: 141002, Московская область, г. Мытищи, ул. Колпакова, д. 24<br />
+          Контактное лицо:
+          <a href="https://sowl.ru/about.html#klimovskikh">ИП Климовских Надежда Николаевна</a><br />
+          ИНН 670402361488<br />
+          ОГРНИП 31650290005949 выдан 15.07.2016&nbsp;г. ФНС по г. Мытищи<br />
+          Режим работы детского сада: понедельник–пятница, 8:00–20:00<br />
+          Телефон: <a href="tel:+79057750627">+7 (905) 775-06-27</a><br />
+          E-mail: <a href="mailto:klimovskih@yandex.ru">klimovskih@yandex.ru</a><br />
+          Основная страница:
+          <a href="https://sowl.ru/">частный детский сад в Мытищах</a>
+        </p>
+      </div>
+      <div class="contacts-map">
+        <script
+          type="text/javascript"
+          charset="utf-8"
+          async
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4tHju4rXBQanrH5a2084spGKeIo-NhNc&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+        ></script>
       </div>
     </section>
   </main>
