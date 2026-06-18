@@ -50,7 +50,6 @@
     ["scroll", "click", "touchstart", "keydown"].forEach(function (eventName) {
       window.removeEventListener(eventName, loadAnalytics, true);
     });
-    window.removeEventListener("load", loadAnalytics);
 
     loadGoogleAnalytics();
 
@@ -78,10 +77,4 @@
       capture: true,
     });
   });
-
-  if (document.readyState === "complete") {
-    loadAnalytics();
-  } else {
-    window.addEventListener("load", loadAnalytics);
-  }
 })(window, document);

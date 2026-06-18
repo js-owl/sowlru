@@ -38,17 +38,59 @@
     rel="preload"
     as="image"
     type="image/webp"
-    href="_img/p4_700.webp"
+    href="_img/p4_640.webp"
+    imagesrcset="
+      _img/p4_640.webp 640w,
+      _img/p4_768.webp 768w,
+      _img/p4_960.webp 960w,
+      _img/p4_700.webp 1278w
+    "
+    imagesizes="100vw"
     fetchpriority="high"
   />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="preload"
+    href="_fonts/web/comfortaa-cyrillic.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
   <link rel="icon" type="image/png" sizes="120x120" href="favicon128.png" />
   <style>
+    @font-face {
+      font-family: "Comfortaa";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url(_fonts/web/comfortaa-cyrillic-ext.woff2) format("woff2");
+      unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+        U+FE2E-FE2F;
+    }
+    @font-face {
+      font-family: "Comfortaa";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url(_fonts/web/comfortaa-cyrillic.woff2) format("woff2");
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    @font-face {
+      font-family: "Comfortaa";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url(_fonts/web/comfortaa-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+        U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     :root {
       --bg-cream: #fdfbf7;
       --bg-cream-dark: #f5efe6;
       --text-brown: #4a3f35;
       --main-brown: #ab5a03;
+      --link-brown: #723800;
       --light-brown: #d2b48c;
       --muted: #6b5f54;
       --white: #ffffff;
@@ -83,7 +125,7 @@
     }
 
     a {
-      color: var(--main-brown);
+      color: var(--link-brown);
       transition: var(--transition);
     }
 
@@ -181,7 +223,7 @@
     .header-phone {
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--main-brown);
+      color: var(--link-brown);
       text-decoration: none;
       white-space: nowrap;
       margin-left: auto;
@@ -262,6 +304,7 @@
 
     /* Hero */
     .hero {
+      position: relative;
       min-height: 75vh;
       display: flex;
       flex-direction: column;
@@ -269,9 +312,38 @@
       align-items: center;
       text-align: center;
       padding: 3rem 5%;
-      background:
-        linear-gradient(135deg, rgba(253, 251, 247, 0.92) 0%, rgba(210, 180, 140, 0.65) 100%),
-        url("_img/p4_700.webp") center / cover;
+      overflow: hidden;
+    }
+
+    .hero__media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(253, 251, 247, 0.92) 0%,
+        rgba(210, 180, 140, 0.65) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero h1 {
@@ -618,12 +690,67 @@
       width: 100%;
       text-align: center;
       font-size: 10px;
-      color: #595959;
+      color: #4a4540;
       text-decoration: underline;
       padding: 0 16px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .yandex-reviews-widget.is-loaded .yandex-reviews-widget__link {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      font-size: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 16px;
+    }
+
+    .embed-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-cream-dark);
+    }
+
+    .yandex-reviews-widget.embed-placeholder {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .yandex-reviews-widget.embed-placeholder .yandex-reviews-widget__link {
+      position: static;
+      width: auto;
+      font-size: 0.85rem;
+      white-space: normal;
+      padding: 0;
+    }
+
+    .contacts-map.embed-placeholder {
+      min-height: 400px;
+    }
+
+    .embed-placeholder.is-loaded {
+      display: block;
+      background: transparent;
+      padding: 0;
+    }
+
+    .contacts-map.is-loaded {
+      min-height: 0;
+    }
+
+    .embed-placeholder__hint {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 320px;
     }
 
     /* Contact / form */
@@ -920,12 +1047,30 @@
 
   <main>
     <section class="hero" id="hero">
-      <h1>Частный детский сад в Мытищах «Совенок»</h1>
-      <p>
-        Добро пожаловать в частный Монтессори детский сад «Совенок» в Мытищах —
-        здесь забота о ребёнке, спокойная атмосфера и внимание каждому малышу.
-      </p>
-      <a href="#request" class="btn">Записаться на экскурсию</a>
+      <img
+        class="hero__media"
+        src="_img/p4_768.webp"
+        srcset="
+          _img/p4_640.webp 640w,
+          _img/p4_768.webp 768w,
+          _img/p4_960.webp 960w,
+          _img/p4_700.webp 1278w
+        "
+        sizes="100vw"
+        width="1278"
+        height="700"
+        fetchpriority="high"
+        decoding="async"
+        alt=""
+      />
+      <div class="hero__content">
+        <h1>Частный детский сад в Мытищах «Совенок»</h1>
+        <p>
+          Добро пожаловать в частный Монтессори детский сад «Совенок» в Мытищах —
+          здесь забота о ребёнке, спокойная атмосфера и внимание каждому малышу.
+        </p>
+        <a href="#request" class="btn">Записаться на экскурсию</a>
+      </div>
     </section>
 
     <section id="about">
@@ -1345,12 +1490,14 @@
       <p class="section-lead">
         Отзывы родителей о детском саде «Совенок» в Мытищах.
       </p>
-      <div class="yandex-reviews-widget">
-        <iframe
-          title="Отзывы о детском саде Совенок на Яндекс Картах"
-          src="https://yandex.ru/maps-reviews-widget/1742155206?comments"
-          loading="lazy"
-        ></iframe>
+      <div
+        class="yandex-reviews-widget embed-placeholder"
+        data-embed-type="iframe"
+        data-embed-src="https://yandex.ru/maps-reviews-widget/1742155206?comments"
+        data-embed-title="Отзывы о детском саде Совенок на Яндекс Картах"
+      >
+        <button type="button" class="embed-placeholder__btn btn">Показать отзывы</button>
+        <p class="embed-placeholder__hint">Виджет загружается с Яндекс Карт только по вашему запросу</p>
         <a
           class="yandex-reviews-widget__link"
           href="https://yandex.ru/maps/org/sovyonok/1742155206/"
@@ -1378,13 +1525,13 @@
           E-mail: <a href="mailto:klimovskih@yandex.ru">klimovskih@yandex.ru</a>
         </p>
       </div>
-      <div class="contacts-map">
-        <script
-          type="text/javascript"
-          charset="utf-8"
-          async
-          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4tHju4rXBQanrH5a2084spGKeIo-NhNc&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
-        ></script>
+      <div
+        class="contacts-map embed-placeholder"
+        data-embed-type="script"
+        data-embed-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4tHju4rXBQanrH5a2084spGKeIo-NhNc&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+      >
+        <button type="button" class="embed-placeholder__btn btn">Показать карту</button>
+        <p class="embed-placeholder__hint">ул. Колпакова, 24, Мытищи</p>
       </div>
     </section>
   </main>
@@ -1393,7 +1540,7 @@
     <div class="footer-inner">
       <p>&copy; частный Монтессори детский сад «Совенок». Все права защищены. 2016–2026</p>
       <a href="https://sowl.ru/" class="footer-logo" aria-label="На главную — детский сад Совенок">
-        <img src="_img/logo_footer.png" alt="Детский сад Совёнок — логотип" />
+        <img src="_img/logo_footer.png" alt="Детский сад Совёнок — логотип" width="59" height="64" />
       </a>
     </div>
   </footer>
@@ -1436,6 +1583,62 @@
             .catch(function () {
               alert("Не удалось отправить заявку. Попробуйте позже или позвоните нам.");
             });
+        });
+      });
+
+      document.querySelectorAll(".embed-placeholder").forEach(function (placeholder) {
+        var button = placeholder.querySelector(".embed-placeholder__btn");
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          if (placeholder.classList.contains("is-loaded")) {
+            return;
+          }
+
+          var embedType = placeholder.getAttribute("data-embed-type");
+          var embedSrc = placeholder.getAttribute("data-embed-src");
+          if (!embedSrc) {
+            return;
+          }
+
+          placeholder.classList.add("is-loaded");
+          placeholder.querySelectorAll(".embed-placeholder__hint").forEach(function (hint) {
+            hint.remove();
+          });
+          button.remove();
+
+          if (embedType === "iframe") {
+            var iframe = document.createElement("iframe");
+            iframe.src = embedSrc;
+            iframe.title = placeholder.getAttribute("data-embed-title") || "";
+            iframe.loading = "lazy";
+            placeholder.insertBefore(iframe, placeholder.firstChild);
+            return;
+          }
+
+          if (embedType === "script") {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.charset = "utf-8";
+            script.async = true;
+            script.src = embedSrc;
+            placeholder.appendChild(script);
+
+            var mapTitle = "Карта — детский сад Совёнок, Мытищи, ул. Колпакова, 24";
+            var mapObserver = new MutationObserver(function () {
+              placeholder.querySelectorAll("iframe").forEach(function (frame) {
+                if (!frame.title) {
+                  frame.title = mapTitle;
+                }
+              });
+            });
+            mapObserver.observe(placeholder, { childList: true, subtree: true });
+            window.setTimeout(function () {
+              mapObserver.disconnect();
+            }, 15000);
+          }
         });
       });
     })();
