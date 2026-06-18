@@ -666,6 +666,61 @@
     }
 
     /* Reviews */
+    .reviews-summary {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .reviews-summary strong {
+      color: var(--main-brown);
+      font-size: 1.25rem;
+    }
+
+    .reviews-grid {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+    }
+
+    .review-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-card__stars {
+      color: var(--main-brown);
+      letter-spacing: 0.1em;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .review-card blockquote {
+      margin: 0 0 1rem;
+      padding: 0;
+      border: none;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .review-card blockquote p {
+      margin: 0;
+    }
+
+    .review-card__meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .reviews-widget-heading {
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-brown);
+      margin: 0 0 1rem;
+    }
+
     .yandex-reviews-widget {
       width: 100%;
       max-width: 760px;
@@ -914,9 +969,66 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "61",
+        "reviewCount": "62",
         "bestRating": "5"
       },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Вероника К." },
+          "datePublished": "2025-12-10",
+          "reviewBody": "Это тот самый сад, который выбирают сердцем. Очень много положительных моментов, которые выделяют его на фоне многих других, в частности, монтессори среда, уважительная к ребёнку и его возрастным задачам, навыкам самообслуживания: дети сами себе накладывают еду в тарелки, накрывают стол, сами выбирают себе интересное занятие.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Марина" },
+          "datePublished": "2025-04-22",
+          "reviewBody": "Ходим в наш любимый садик уже 4 года. Дочь бежит в сад с первых дней. Питание отличное, своя кухня, все готовится на месте, а не привозное, как в других садах. Подстраиваются индивидуально, если есть мед. показания по питанию, дома отказывается кушать, потому что не так вкусно, как в садике.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Ульвия Семчук" },
+          "datePublished": "2026-01-23",
+          "reviewBody": "В Совенок мы пришли уже в довольно взрослом возрасте в 5 лет. Для детей старшего возраста проводятся полноценные занятия по подготовке к школе, чей результат особенно заметен дома после занятий.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Алия Омурзакова" },
+          "datePublished": "2025-08-05",
+          "reviewBody": "Утром нет ни слез, ни уговоров – бежит с радостью! А вечером даже не хочет уходить, приходится уговаривать идти домой. Это ли не показатель того, что ребенку в саду хорошо и комфортно?",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Натали Прибылова" },
+          "datePublished": "2025-07-14",
+          "reviewBody": "Мы отдали сына в 2,4 года и очень рады, что остановили свой выбор именно на Совёнке. Адаптация к садику прошла великолепна. Теперь каждое утро просыпается и радостно бежит собираться в садик.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ],
       "founder": {
         "@type": "Person",
         "name": "Климовских Надежда Николаевна"
@@ -1484,8 +1596,59 @@
     <section id="reviews" class="bg-alt">
       <h2>Отзывы родителей</h2>
       <p class="section-lead">
-        Отзывы родителей о детском саде «Совенок» в Мытищах.
+        Отзывы родителей о частном Монтессори детском саде «Совенок» в Мытищах:
+        питание, подготовка к школе, логопед, адаптация и атмосфера.
       </p>
+      <p class="reviews-summary">
+        Рейтинг <strong>4,9</strong> на
+        <a href="https://yandex.ru/maps/org/sovyonok/1742155206/" target="_blank" rel="noopener noreferrer">Яндекс Картах</a>
+        · 62 отзыва
+      </p>
+      <div class="reviews-grid grid">
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>Это тот самый сад, который выбирают сердцем. Очень много положительных моментов, которые выделяют его на фоне многих других, в частности, монтессори среда, уважительная к ребёнку и его возрастным задачам, навыкам самообслуживания: дети сами себе накладывают еду в тарелки, накрывают стол, сами выбирают себе интересное занятие.</p>
+          </blockquote>
+          <p class="review-card__meta">Вероника К. · декабрь 2025 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>Ходим в наш любимый садик уже 4 года. Дочь бежит в сад с первых дней. Питание отличное, своя кухня, все готовится на месте, а не привозное, как в других садах. Подстраиваются индивидуально, если есть мед. показания по питанию, дома отказывается кушать, потому что не так вкусно, как в садике.</p>
+          </blockquote>
+          <p class="review-card__meta">Марина · апрель 2025 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>В Совенок мы пришли уже в довольно взрослом возрасте в 5 лет. Для детей старшего возраста проводятся полноценные занятия по подготовке к школе, чей результат особенно заметен дома после занятий. Проводятся выездные экскурсии — спустя пару месяцев мы были спокойны, так как полностью доверяем нашему замечательному руководителю Надежде Николаевне.</p>
+          </blockquote>
+          <p class="review-card__meta">Ульвия Семчук · январь 2026 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>Утром нет ни слез, ни уговоров – бежит с радостью! А вечером даже не хочет уходить, приходится уговаривать идти домой. Это ли не показатель того, что ребенку в саду хорошо и комфортно? Мы перешли к вам из частного детского сада, и разница, честно говоря, колоссальная.</p>
+          </blockquote>
+          <p class="review-card__meta">Алия Омурзакова · август 2025 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>Мы отдали сына в 2,4 года и очень рады, что остановили свой выбор именно на Совёнке, хотя я обошла все садики Мытищ. Адаптация к садику прошла великолепна. Теперь каждое утро просыпается и радостно бежит собираться в садик.</p>
+          </blockquote>
+          <p class="review-card__meta">Натали Прибылова · июль 2025 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+        <article class="card review-card">
+          <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <blockquote>
+            <p>Разновозрастные группы, много доп занятий: английский язык, спорт, музыка-танцы, логопед для старшей группы. Раз в 2–3 месяца выездные экскурсии устраивает садик сам, без привлечения родителей. Программа очень насыщенная: лепят, рисуют, есть подготовка к школе и кулинарные занятия.</p>
+          </blockquote>
+          <p class="review-card__meta">Евгения С. · июль 2024 · <a href="https://yandex.ru/maps/org/sovyonok/1742155206/reviews/" target="_blank" rel="noopener noreferrer">Яндекс Карты</a></p>
+        </article>
+      </div>
+      <p class="reviews-widget-heading">Все отзывы на Яндекс Картах</p>
       <div
         class="yandex-reviews-widget embed-placeholder"
         data-embed-type="iframe"
