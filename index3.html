@@ -179,7 +179,11 @@
       padding: 4rem 5%;
     }
 
-    .bg-alt {
+    main > section:not(.hero):nth-child(2n) {
+      background-color: var(--bg-cream);
+    }
+
+    main > section:not(.hero):nth-child(2n + 1) {
       background-color: var(--bg-cream-dark);
     }
 
@@ -1272,7 +1276,7 @@
       </div>
     </section>
 
-    <section id="team" class="bg-alt">
+    <section id="team">
       <h2>Команда педагогов</h2>
       <p class="section-lead">
         Опытные монтессори-педагоги и специалисты по дошкольному развитию.
@@ -1396,7 +1400,7 @@
       </div>
     </section>
 
-    <section id="gallery" class="bg-alt">
+    <section id="gallery">
       <h2>Фотографии нашего частного сада</h2>
       <p class="section-lead">Монтессори-среда, занятия и повседневная жизнь в «Совёнке».</p>
       <div class="gallery-grid">
@@ -1579,7 +1583,7 @@
       </div>
     </section>
 
-    <section id="reviews" class="bg-alt">
+    <section id="reviews">
       <h2>Отзывы родителей</h2>
       <p class="section-lead">
         Отзывы родителей о частном Монтессори детском саде «Совенок» в Мытищах:
