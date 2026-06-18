@@ -56,12 +56,20 @@
     window.yandex_metrika_callbacks = window.yandex_metrika_callbacks || [];
     window.yandex_metrika_callbacks.push(function () {
       try {
+        var counterId = 38548030;
         window.yaCounter38548030 = new Ya.Metrika({
-          id: 38548030,
+          id: counterId,
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true,
         });
+        window.ym = function (id, method) {
+          var counter = window["yaCounter" + id];
+          var args = Array.prototype.slice.call(arguments, 2);
+          if (counter && typeof counter[method] === "function") {
+            return counter[method].apply(counter, args);
+          }
+        };
       } catch (e) {}
     });
 

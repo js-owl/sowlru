@@ -1726,6 +1726,43 @@
         });
       }
 
+      var YM_COUNTER_ID = 38548030;
+
+      function trackLeadConversion(callback) {
+        var attempts = 0;
+
+        function sendGoal() {
+          if (typeof window.ym === "function") {
+            window.ym(YM_COUNTER_ID, "reachGoal", "LEAD", callback);
+            return true;
+          }
+          var counter = window["yaCounter" + YM_COUNTER_ID];
+          if (counter && typeof counter.reachGoal === "function") {
+            counter.reachGoal("LEAD", callback);
+            return true;
+          }
+          return false;
+        }
+
+        function tryTrack() {
+          if (sendGoal()) {
+            return;
+          }
+          attempts += 1;
+          if (attempts < 25) {
+            window.setTimeout(tryTrack, 80);
+            return;
+          }
+          callback();
+        }
+
+        tryTrack();
+      }
+
+      function redirectToThanks() {
+        window.location.assign("/thanks/");
+      }
+
       document.querySelectorAll("#form").forEach(function (form) {
         form.addEventListener("submit", function (event) {
           event.preventDefault();
@@ -1735,7 +1772,16 @@
           })
             .then(function () {
               form.reset();
-              alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+              var redirected = false;
+              function goThanks() {
+                if (redirected) {
+                  return;
+                }
+                redirected = true;
+                redirectToThanks();
+              }
+              trackLeadConversion(goThanks);
+              window.setTimeout(goThanks, 2000);
             })
             .catch(function () {
               alert("Не удалось отправить заявку. Попробуйте позже или позвоните нам.");
