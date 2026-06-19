@@ -56,11 +56,10 @@ def main() -> int:
         before, after = convert_webp(IMG / src_name, IMG / dest_name)
         print(f"_img/{dest_name}: {before / 1024:.1f} KB -> {after / 1024:.1f} KB")
 
+    before, after = cover_webp(IMG / "english.JPG", IMG / "english.webp", 960, 720)
+    print(f"_img/english.webp: {before / 1024:.1f} KB -> {after / 1024:.1f} KB")
+
     external = [
-        (
-            "about-english.webp",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Marines_teach_English_to_Okinawa_students_through_song%2C_play_during_new_program_140919-M-PJ295-343.jpg/960px-Marines_teach_English_to_Okinawa_students_through_song%2C_play_during_new_program_140919-M-PJ295-343.jpg",
-        ),
         (
             "about-safety.webp",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Camera_In_Daycare.png/960px-Camera_In_Daycare.png",
