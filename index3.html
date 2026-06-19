@@ -201,6 +201,86 @@
       margin-bottom: 0;
     }
 
+    .about-tagline {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 1.75rem;
+      padding: 0;
+      border: none;
+      font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--main-brown);
+      font-style: italic;
+    }
+
+    .about-tagline::before,
+    .about-tagline::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: var(--light-brown);
+      margin: 0 auto 1rem;
+      border-radius: 2px;
+    }
+
+    .about-tagline::after {
+      margin: 1rem auto 0;
+    }
+
+    .about-cards {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-cards__row {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .about-cards__row--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-card {
+      text-align: center;
+    }
+
+    .about-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+      margin-bottom: 0.85rem;
+    }
+
+    .about-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.05rem;
+      color: var(--text-brown);
+      text-align: center;
+    }
+
+    .about-card h3::after {
+      display: none;
+    }
+
+    .about-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .about-card a {
+      font-weight: 600;
+    }
+
     /* Header */
     .site-header {
       position: sticky;
@@ -925,6 +1005,16 @@
         height: auto;
         aspect-ratio: 4 / 3;
       }
+
+      .about-cards__row--3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .about-cards__row--3 {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -1182,74 +1272,104 @@
     </section>
 
     <section id="about">
-      <h2>О нашем частном детском саде в Мытищах</h2>
+      <blockquote class="about-tagline">
+        Мы не учим — мы помогаем детям совершать открытия.
+      </blockquote>
+      <h2>Семейный частный сад «Совенок» в Мытищах</h2>
       <p class="section-lead">
-        Небольшой семейный сад и
-        <a href="https://sowl.ru/center/">центр развития</a> «Совенок» в Мытищах на ул.
-        Колпакова — для детей от 2 до 7 лет.
+        Небольшой сад и
+        <a href="https://sowl.ru/center/">центр развития</a> на ул. Колпакова —
+        для детей от 2 до 7 лет в тёплой домашней атмосфере.
       </p>
-      <div class="prose">
-        <p>
-          Просторное благоустроенное помещение оборудовано всем необходимым
-          для развивающих занятий, игр, отдыха, дневного сна и приёма пищи.
-          Соблюдены нормативные требования для пребывания детей дошкольного
-          возраста. Тёплая домашняя обстановка, комфортные бытовые условия и
-          разнообразные игрушки помогают малышам чувствовать себя спокойно и
-          успешно развиваться.
-        </p>
-        <p>
-          Дети находятся в небольшой группе, занимаются в Монтессори-среде,
-          гуляют, питаются и посещают занятия со специалистами. Четырехразовое
-          питание готовится на кухне сада. Мы работаем с 8:00 до 20:00 по
-          будням. Мы не учим — мы помогаем детям совершать открытия.
-        </p>
-      </div>
-      <div class="prose" style="margin-top: 2rem">
-        <h3>Заменяет ли наш сад ясли для малышей?</h3>
-        <p>
-          Родители малышей с 2 лет в Мытищах часто ищут ясли или задаются
-          вопросом, можно ли сразу отдать ребёнка в сад вместо яслей. «Совёнок»
-          принимает детей с 2 лет — для многих семей посещение сада может
-          заменить этап яслей: небольшая группа, дневной сон, мягкая адаптация
-          и Монтессори-среда с учётом возраста.
-        </p>
-      </div>
-      <div class="grid" style="margin-top: 2rem">
-        <div class="card">
-          <h3>Монтессори-среда</h3>
-          <p>
-            Ребёнок учится самостоятельности и концентрации в
-            подготовленной среде, без давления и сравнения с другими.
-          </p>
+      <div class="about-cards">
+        <div class="about-cards__row about-cards__row--3">
+          <article class="about-card">
+            <img
+              src="_img/gallery-01.webp"
+              width="960"
+              height="420"
+              loading="lazy"
+              alt="дети занимаются с Монтессори-материалами"
+            />
+            <h3>Монтессори-среда</h3>
+            <p>
+              Ребёнок учится самостоятельности в подготовленной среде — без
+              давления и сравнения с другими.
+            </p>
+          </article>
+          <article class="about-card">
+            <img
+              src="_img/gallery-04.webp"
+              width="960"
+              height="720"
+              loading="lazy"
+              alt="занятия в просторном Монтессори-классе"
+            />
+            <h3>Безопасность</h3>
+            <p>
+              Помещение по нормативам, группа до 15 детей, еженедельный
+              медосмотр и мягкая адаптация.
+            </p>
+          </article>
+          <article class="about-card">
+            <img
+              src="_img/staff/ped2.webp"
+              width="300"
+              height="400"
+              loading="lazy"
+              alt="педагог детского сада Совёнок"
+            />
+            <h3>Педагоги</h3>
+            <p>
+              Опытные монтессори-педагоги с профильным образованием и
+              вниманием к каждому малышу.
+            </p>
+          </article>
         </div>
-        <div class="card">
-          <h3>Небольшая группа</h3>
-          <p>
-            До 15 детей в группе, мягкая адаптация и внимание к режиму,
-            питанию и эмоциональному состоянию.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Занятия включены</h3>
-          <p>
-            <a href="https://sowl.ru/logoped/">Логопед</a>,
-            <a href="https://sowl.ru/english/">английский</a>, танцы, музыка, рисование, лепка и
-            подготовка к школе — без отдельной оплаты каждого кружка.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Питание на месте</h3>
-          <p>
-            Четырехразовое меню из свежих продуктов; при необходимости
-            учитываются аллергии и рекомендации врача.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Гибкий график</h3>
-          <p>
-            Полный день 8:00–20:00 или кратковременное пребывание утром
-            либо вечером, пять дней в неделю.
-          </p>
+        <div class="about-cards__row about-cards__row--3">
+          <article class="about-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/25/Eating_on_Moscow_kindergardens_02.jpg"
+              width="640"
+              height="480"
+              loading="lazy"
+              alt="дети во время обеда в детском саду"
+            />
+            <h3>Питание</h3>
+            <p>
+              Четырёхразовое меню из свежих продуктов на кухне сада.
+              Учитываем аллергии и рекомендации врача.
+            </p>
+          </article>
+          <article class="about-card">
+            <img
+              src="_img/gallery-05.webp"
+              width="960"
+              height="720"
+              loading="lazy"
+              alt="полный день в саду с дневным сном"
+            />
+            <h3>График 8:00–20:00</h3>
+            <p>
+              Полный день по будням или кратковременное посещение утром и
+              вечером — пять дней в неделю.
+            </p>
+          </article>
+          <article class="about-card">
+            <img
+              src="_img/gallery-03.webp"
+              width="960"
+              height="720"
+              loading="lazy"
+              alt="прогулка и занятия на свежем воздухе"
+            />
+            <h3>Занятия включены</h3>
+            <p>
+              <a href="https://sowl.ru/logoped/">Логопед</a>,
+              <a href="https://sowl.ru/english/">английский</a>, танцы, музыка,
+              творчество и подготовка к школе — без доплат за кружки.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -1417,13 +1537,6 @@
         Стоимость зависит от графика и возраста ребёнка. Наличие мест уточняйте
         по телефону <a href="tel:+79057750627">+7 (905) 775-06-27</a>.
       </p>
-      <div class="card" style="max-width: 760px; margin: 0 auto 2rem">
-        <ul>
-          <li>Стоимость и цена — по выбранному тарифу (см. карточки ниже)</li>
-          <li>Расписание занятий: Монтессори-класс, логопед, английский, творчество и подготовка к школе</li>
-          <li>Запись на пробное занятие и экскурсию — по телефону или через форму внизу страницы</li>
-        </ul>
-      </div>
       <div class="grid">
         <div class="card card--tariff">
           <h3>Тариф полный день :</h3>
@@ -1443,7 +1556,6 @@
             <li>Прогулки</li>
             <li>Дневной сон</li>
             <li>Четырехразовое домашнее питание</li>
-            <li>В стоимость входит всё расписание занятий тарифа</li>
           </ul>
           <p><strong>Дополнительная оплата:</strong></p>
           <p class="tariff-extra">Вступительный взнос — 1 месячный платёж (единоразовый платёж после адаптации).</p>
