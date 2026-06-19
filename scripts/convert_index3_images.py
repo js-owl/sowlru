@@ -45,7 +45,7 @@ def download_cover_webp(url: str, dest: Path, w: int, h: int) -> int:
 
 
 def main() -> int:
-    before, after = cover_webp(IMG / "meal.jpeg", IMG / "meal.webp", 960, 720)
+    before, after = cover_webp(IMG / "meal.jpeg", IMG / "meal.webp", 720, 960)
     print(f"_img/meal.webp: {before / 1024:.1f} KB -> {after / 1024:.1f} KB")
 
     for src_name, dest_name in [
