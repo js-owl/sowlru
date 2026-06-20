@@ -34,7 +34,7 @@ Press-kit для каталогов: https://sowl.ru/press.html
 | 1 | https://sowl.ru/ | 70–80% |
 | 2 | https://sowl.ru/articles/s02.html | экспертные темы |
 | 3 | https://sowl.ru/detsad.html | обзоры, сравнения |
-| 4 | https://sowl.ru/about.html | интервью, команда |
+| 4 | https://sowl.ru/#team | интервью, команда |
 
 **Не использовать:** `index3.html` (редирект 301 на главную), `obsolete/`.
 
