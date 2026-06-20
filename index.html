@@ -2170,6 +2170,11 @@
             <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
           </span>
         </label>
+        <div
+          style="height: 100px"
+          id="captcha-container"
+          class="smart-captcha"
+        ></div>
         <button type="submit" class="btn">Отправить заявку</button>
       </form>
     </section>
@@ -2242,6 +2247,16 @@
     </div>
   </footer>
 
+  <script src="captcha-sitekey.js.php"></script>
+  <script>
+    (function () {
+      var captchaContainer = document.getElementById("captcha-container");
+      if (captchaContainer && window.SMARTCAPTCHA_CLIENT_KEY) {
+        captchaContainer.setAttribute("data-sitekey", window.SMARTCAPTCHA_CLIENT_KEY);
+      }
+    })();
+  </script>
+  <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
   <script>
     (function () {
       var header = document.querySelector(".site-header");
@@ -2303,15 +2318,52 @@
         window.location.assign("/thanks/");
       }
 
+      var captchaContainer = document.getElementById("captcha-container");
+
+      function resetRequestCaptcha() {
+        if (
+          window.smartCaptcha &&
+          captchaContainer &&
+          typeof window.smartCaptcha.reset === "function"
+        ) {
+          window.smartCaptcha.reset(captchaContainer);
+        }
+      }
+
       document.querySelectorAll("#form").forEach(function (form) {
         form.addEventListener("submit", function (event) {
           event.preventDefault();
+
+          var tokenInput = form.querySelector('input[name="smart-token"]');
+          if (!tokenInput || !tokenInput.value) {
+            alert("Подтвердите, что вы не робот.");
+            return;
+          }
+
           fetch(form.getAttribute("action") || "mail.php", {
             method: "POST",
             body: new FormData(form),
           })
+            .then(function (response) {
+              return response
+                .json()
+                .catch(function () {
+                  return {};
+                })
+                .then(function (data) {
+                  if (!response.ok) {
+                    var error = new Error(
+                      data.message || "Не удалось отправить заявку. Попробуйте позже или позвоните нам."
+                    );
+                    error.isCaptcha = response.status === 400;
+                    throw error;
+                  }
+                  return data;
+                });
+            })
             .then(function () {
               form.reset();
+              resetRequestCaptcha();
               var redirected = false;
               function goThanks() {
                 if (redirected) {
@@ -2323,8 +2375,14 @@
               trackLeadConversion(goThanks);
               window.setTimeout(goThanks, 2000);
             })
-            .catch(function () {
-              alert("Не удалось отправить заявку. Попробуйте позже или позвоните нам.");
+            .catch(function (error) {
+              if (error && error.isCaptcha) {
+                resetRequestCaptcha();
+              }
+              alert(
+                (error && error.message) ||
+                  "Не удалось отправить заявку. Попробуйте позже или позвоните нам."
+              );
             });
         });
       });
