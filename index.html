@@ -941,6 +941,26 @@
       border-color: var(--main-brown);
     }
 
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .form-consent input {
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      width: auto;
+    }
+
+    .form-consent a {
+      color: var(--main-brown);
+    }
+
     /* Footer */
     footer {
       background-color: var(--text-brown);
@@ -1815,6 +1835,19 @@
         <input type="text" id="request-name" name="name" placeholder="Ваше имя" autocomplete="name" required />
         <label for="request-phone" class="sr-only">Ваш телефон</label>
         <input type="tel" id="request-phone" name="phone" placeholder="Ваш телефон" autocomplete="tel" required />
+        <label class="form-consent" for="request-consent">
+          <input
+            type="checkbox"
+            id="request-consent"
+            name="consent"
+            value="1"
+            required
+          />
+          <span>
+            Даю согласие на обработку персональных данных в соответствии с
+            <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
+          </span>
+        </label>
         <button type="submit" class="btn">Отправить заявку</button>
       </form>
     </section>
@@ -1875,7 +1908,10 @@
         <p>Режим работы детского сада: понедельник–пятница, 8:00–20:00</p>
         <p>Телефон: <a href="tel:+79057750627">+7 (905) 775-06-27</a></p>
         <p>Сайт: <a href="https://sowl.ru/">sowl.ru</a></p>
-        <p><a href="press.html">Партнёрам</a></p>
+        <p>
+          <a href="press.html">Партнёрам</a> ·
+          <a href="privacy.html">Политика конфиденциальности</a>
+        </p>
       </div>
       <p class="footer-copy">&copy; частный Монтессори детский сад «Совёнок». Все права защищены. 2016–2026</p>
       <a href="https://sowl.ru/" class="footer-logo" aria-label="На главную — детский сад «Совёнок»">
