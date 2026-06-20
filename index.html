@@ -963,6 +963,26 @@
       color: var(--main-brown);
     }
 
+    #captcha-container {
+      min-height: 102px;
+      overflow: visible;
+    }
+
+    .captcha-hint {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .captcha-hint[hidden] {
+      display: none;
+    }
+
+    .captcha-hint.is-error {
+      color: #9a4a00;
+    }
+
     /* Footer */
     footer {
       background-color: var(--text-brown);
@@ -1404,6 +1424,7 @@
       }
     }
   </script>
+  <script src="captcha-sitekey.js.php"></script>
 </head>
 <body>
 
@@ -2170,11 +2191,115 @@
             <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
           </span>
         </label>
-        <div
-          style="height: 100px"
-          id="captcha-container"
-          class="smart-captcha"
-        ></div>
+        <div id="captcha-container" class="smart-captcha" data-hl="ru"></div>
+        <p id="captcha-hint" class="captcha-hint" hidden>
+          Если капча не открывается, отключите Adblock Plus для sowl.ru
+          (иконка расширения → «Приостановить на этом сайте») или позвоните
+          <a href="tel:+79057750627">+7 (905) 775-06-27</a>.
+        </p>
+        <script>
+          (function () {
+            var hint = document.getElementById("captcha-hint");
+
+            function showCaptchaHelp() {
+              if (!hint) {
+                return;
+              }
+              hint.hidden = false;
+              hint.classList.add("is-error");
+            }
+
+            function bringCaptchaOverlayOnScreen(overlay) {
+              if (!overlay) {
+                return;
+              }
+              var rect = overlay.getBoundingClientRect();
+              if (rect.x > -1000 && rect.y > -1000) {
+                return;
+              }
+              overlay.style.setProperty("position", "fixed", "important");
+              overlay.style.setProperty("inset", "0", "important");
+              overlay.style.setProperty("left", "0", "important");
+              overlay.style.setProperty("top", "0", "important");
+              overlay.style.setProperty("right", "0", "important");
+              overlay.style.setProperty("bottom", "0", "important");
+              overlay.style.setProperty("transform", "none", "important");
+              overlay.style.setProperty("z-index", "10000000", "important");
+            }
+
+            function fixCaptchaOverlays() {
+              document.querySelectorAll(".SmartCaptcha-Overlay").forEach(function (overlay) {
+                var challengeFrame = overlay.querySelector(
+                  'iframe:not([aria-hidden="true"]):not([data-testid="backend-iframe"])'
+                );
+                var spin = overlay.querySelector(".SmartCaptcha-Spin");
+                var spinActive = spin && getComputedStyle(spin).display !== "none";
+                if (!challengeFrame && !spinActive) {
+                  return;
+                }
+                bringCaptchaOverlayOnScreen(overlay);
+              });
+            }
+
+            function pollCaptchaOverlayFix() {
+              var attempts = 0;
+              var timer = window.setInterval(function () {
+                fixCaptchaOverlays();
+                attempts += 1;
+                if (attempts >= 60) {
+                  window.clearInterval(timer);
+                }
+              }, 200);
+            }
+
+            var container = document.getElementById("captcha-container");
+            if (container && window.SMARTCAPTCHA_CLIENT_KEY) {
+              container.setAttribute("data-sitekey", window.SMARTCAPTCHA_CLIENT_KEY);
+            }
+
+            if (document.body) {
+              new MutationObserver(fixCaptchaOverlays).observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ["class", "style"],
+              });
+            }
+
+            window.addEventListener("blur", function () {
+              if (document.activeElement && document.activeElement.tagName === "IFRAME") {
+                pollCaptchaOverlayFix();
+                window.setTimeout(function () {
+                  var tokenInput = document.querySelector('#form input[name="smart-token"]');
+                  if (!tokenInput || !tokenInput.value) {
+                    showCaptchaHelp();
+                  }
+                }, 8000);
+              }
+            });
+
+            function bindCaptchaEvents() {
+              if (!window.smartCaptcha || window.captchaEventsBound) {
+                return;
+              }
+              if (!container || !container.querySelector("iframe")) {
+                window.setTimeout(bindCaptchaEvents, 200);
+                return;
+              }
+
+              window.captchaEventsBound = true;
+              window.captchaWidgetId = 0;
+
+              try {
+                window.smartCaptcha.subscribe(0, "network-error", showCaptchaHelp);
+                window.smartCaptcha.subscribe(0, "javascript-error", showCaptchaHelp);
+              } catch (error) {}
+            }
+
+            window.addEventListener("load", bindCaptchaEvents);
+          })();
+        </script>
+        <script src="https://smartcaptcha.cloud.yandex.ru/captcha.js" defer></script>
         <button type="submit" class="btn">Отправить заявку</button>
       </form>
     </section>
@@ -2247,16 +2372,6 @@
     </div>
   </footer>
 
-  <script src="captcha-sitekey.js.php"></script>
-  <script>
-    (function () {
-      var captchaContainer = document.getElementById("captcha-container");
-      if (captchaContainer && window.SMARTCAPTCHA_CLIENT_KEY) {
-        captchaContainer.setAttribute("data-sitekey", window.SMARTCAPTCHA_CLIENT_KEY);
-      }
-    })();
-  </script>
-  <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
   <script>
     (function () {
       var header = document.querySelector(".site-header");
@@ -2318,15 +2433,9 @@
         window.location.assign("/thanks/");
       }
 
-      var captchaContainer = document.getElementById("captcha-container");
-
       function resetRequestCaptcha() {
-        if (
-          window.smartCaptcha &&
-          captchaContainer &&
-          typeof window.smartCaptcha.reset === "function"
-        ) {
-          window.smartCaptcha.reset(captchaContainer);
+        if (window.smartCaptcha) {
+          window.smartCaptcha.reset();
         }
       }
 
@@ -2336,7 +2445,9 @@
 
           var tokenInput = form.querySelector('input[name="smart-token"]');
           if (!tokenInput || !tokenInput.value) {
-            alert("Подтвердите, что вы не робот.");
+            alert(
+              "Подтвердите, что вы не робот. Если капча не открывается — отключите Adblock Plus для sowl.ru или позвоните +7 (905) 775-06-27."
+            );
             return;
           }
 
